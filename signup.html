@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Converts Finance</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Signup</title>
 
     <link rel="stylesheet" href="vendors/bootstrap-5.3.3/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -12,7 +12,7 @@
     <nav class="navbar fixed-top bg-body-secondary">
       <div class="container-fluid">
         <a class="navbar-brand" href="index.html">
-          <img src="./img/logo.svg" alt="Logo" width="24" height="24" class="d-inline-block align-text-top" />
+          <img src="./img/logo.svg" alt="feedboard Logo" width="24" height="24" class="d-inline-block align-text-top" />
           Converts
         </a>
       </div>
@@ -22,24 +22,22 @@
       <div class="row vh-100">
         <div class="col-12 col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-xs-6 d-flex flex-column align-items-center justify-content-center">
           <div class="col-12 px-5">
-            <h1 class="mb-4">Welcome back</h1>
+            <h1>Create an account</h1>
+            <p class="text-muted mb-4">Get started with your Converts account</p>
             <form>
               <div class="form-floating mb-3">
-                <input type="email" class="form-control form-control-lg" id="userEmail" placeholder="name@example.com" required />
+                <input type="email" class="form-control form-control-lg" id="userEmail" placeholder="name@example.com" autocomplete="email" required />
                 <label for="floatingInput">Email address</label>
                 <div id="emailHelper" class="form-text text-danger"></div>
               </div>
-              <div class="form-floating">
-                <input type="password" class="form-control form-control-lg" id="userPassword" placeholder="Password" autocomplete="on" required />
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control form-control-lg" id="userPassword" placeholder="Password" autocomplete="new-password" required />
                 <label for="floatingInput">Password</label>
                 <div id="passwordHelper" class="form-text text-danger"></div>
               </div>
-              <div class="mt-3 mb-4">
-                <a href="forgot.html">Forgot password</a>
-              </div>
               <div class="d-grid">
-                <button id="loginBtn" type="submit" class="btn btn-primary btn-lg" name="login-button">Login</button>
-                <div id="loginHelper" class="form-text text-danger"></div>
+                <button id="registerBtn" type="submit" class="btn btn-lg btn-primary" name="create-account">Create account</button>
+                <div id="signupHelper" class="form-text text-danger"></div>
                 <div class="d-flex flex-row align-items-center">
                   <hr class="w-100" />
                   <p class="text-secondary small mx-4">OR</p>
@@ -49,7 +47,7 @@
             </form>
           </div>
           <div class="my-2">
-            <p class="text-center">Don't have an account? <a href="signup.html">Signup</a></p>
+            <p class="text-center">Already have an account? <a href="index.html">Login</a></p>
           </div>
         </div>
         <div class="col-md-6 login-cover"></div>
@@ -65,13 +63,13 @@
         <li class="list-inline-item"><a class="text-secondary" href="privacy-policy.html">Privacy Policy</a></li>
       </ul> -->
     </div>
+
+    <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="vendors/bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/vendors/bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
 
     <script src="js/app.js"></script>
-    <script src="js/session.js"></script>
-    <script src="js/login.js"></script>
-    <script src="js/emailValidation.js"></script>
-    <script src="js/passwordValidation.js"></script>
+    <script src="js/signup.js"></script>
   </body>
 </html>

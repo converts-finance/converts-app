@@ -1,0 +1,2 @@
+// Initialise Supabase client
+const client = supabase.createClient("https://xargcmjbcxmattsksdea.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhhcmdjbWpiY3htYXR0c2tzZGVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDk4NTAzNzksImV4cCI6MjAyNTQyNjM3OX0.T47bweSbghclCg34gCc7-qFOSJML3k8MoQgvpqA1IXM");

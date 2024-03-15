@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Converts Finance</title>
+
+    <link rel="stylesheet" href="vendors/bootstrap-5.3.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="bg-body-secondary">
+    <div class="container-fluid">
+      <div class="row mt-5">
+        <div class="col-12 col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-xs-6 d-flex flex-column">
+          <div class="col-12 px-5">
+            <h1 class="mb-4">Tell us about your company</h1>
+            <form>
+              <div class="row">
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="floatingInput">First name</label>
+                    <input type="text" class="form-control form-control-lg" id="userFirstName" placeholder="First name" autocomplete="name" required />
+                    <div id="firstNameHelper" class="form-text text-danger"></div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="floatingInput">Last name</label>
+                    <input type="text" class="form-control form-control-lg" id="userLastName" placeholder="Last name" autocomplete="family-name" required />
+                    <div id="lastNameHelper" class="form-text text-danger"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Company name</label>
+                <input type="email" class="form-control form-control-lg" id="companyName" placeholder="Your company name" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Legal company name</label>
+                <input type="email" class="form-control form-control-lg" id="legalCompanyName" placeholder="e.g. Company LLC" />
+                <div id="emailHelp" class="form-text">This is your legal company name</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Company website (optional)</label>
+                <input type="email" class="form-control form-control-lg" id="companyWebsite" placeholder="" />
+                <div id="emailHelp" class="form-text"></div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Describe your company</label>
+                <textarea class="form-control" id="companyDescription" rows="3"></textarea>
+                <div id="emailHelp" class="form-text">A short description of your company</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Industry</label>
+                <select id="companyIndustry" class="form-select form-select-lg" aria-label="Default select example">
+                  <option selected disabled>Select</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="d-grid">
+                <button id="registerBtn" type="submit" class="btn btn-primary btn-lg" name="login-button">Continue</button>
+                <div id="registerHelper" class="form-text text-danger"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="vendors/bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/session.js"></script>
+    <script src="js/company-registration.js"></script>
+  </body>
+</html>
