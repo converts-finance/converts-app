@@ -70,6 +70,7 @@ editDetailsBtn.addEventListener("click", async function () {
 
 const saveBtn = document.getElementById("modalDetailSaveBtn");
 
+// UPDATE COMPANY DETAILS
 saveBtn.addEventListener("click", async function () {
   updateCompanyDetails(modalCompanyName.value, modalLegalCompanyName.value, modalCompanyWebsite.value, modalCompanyHQ.value, modalCompanyDescription.value, modalInvestorMemo.value, modalTwitter.value, modalLinkedin.value, companyID.value);
 });
@@ -81,7 +82,10 @@ async function updateCompanyDetails(companyName, legalCompanyName, website, comp
     console.log(data);
     saveBtn.disabled = false;
     getCompanyDetails();
-    //close modal here
+    var myModalEl = document.getElementById("companyDetailsModal");
+    var modal = bootstrap.Modal.getInstance(myModalEl);
+    modal.hide();
+    // add toast confirmation
   }
   if (error) {
     console.log(error);
