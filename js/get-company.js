@@ -1,3 +1,4 @@
+const companyLogo = document.getElementById("companyLogo");
 const companyName = document.getElementById("companyName");
 const altCompanyName = document.getElementById("altCompanyName");
 const legalCompanyName = document.getElementById("legalCompanyName");
@@ -19,6 +20,11 @@ async function getCompanyDetails() {
   const { data, error } = await client.from("companies").select("*").eq("user_id", user_id);
   if (data) {
     console.log(data);
+    if (data[0].logo_url == null) {
+      companyLogo.setAttribute("src", "https://ui-avatars.com/api/?name=" + data[0].company_name);
+    } else {
+      companyLogo.setAttribute("src", data[0].logo_url);
+    }
     companyName.textContent = data[0].company_name;
     altCompanyName.textContent = data[0].company_name;
     legalCompanyName.textContent = data[0].legal_company_name;
