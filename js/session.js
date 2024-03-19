@@ -6,6 +6,9 @@ function userLogged() {
   if (window.location.pathname == "/index.html") {
     window.location.replace("/dashboard.html");
   }
+  if (window.location.pathname == "/company-registration.html") {
+    window.location.replace("/dashboard.html");
+  }
 }
 
 function userNotLogged() {

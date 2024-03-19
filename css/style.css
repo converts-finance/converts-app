@@ -1,3 +1,13 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
 /* =============================================================================
 SIDEBAR
 ============================================================================= */
@@ -8,10 +18,12 @@ SIDEBAR
 #sidebar-wrapper {
   min-height: 100vh;
   height: 100vh;
-  min-width: 16rem;
+  min-width: 14rem;
   overflow: scroll;
-  margin-left: -16rem;
+  margin-left: -14rem;
   transition: margin 0.25s ease-out;
+  border-right: 1px solid #dcdcdc;
+  background-color: #f2f2f2;
 }
 
 #sidebar-wrapper .sidebar-heading {
@@ -19,16 +31,15 @@ SIDEBAR
   font-size: 1.2rem;
 }
 .sidebar-heading {
-  width: 16rem;
+  width: 14rem;
   position: fixed;
   z-index: 1000;
 }
 
 #sidebar-wrapper .list-group {
-  width: 16rem;
+  width: 14rem;
 }
 .list-group {
-  height: 100vh;
   overflow: scroll;
 }
 
@@ -62,7 +73,7 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
   }
 
   body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
-    margin-left: -16rem;
+    margin-left: -14rem;
   }
 }
 
@@ -78,7 +89,15 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
 }
 
 .list-group-item.active {
-  color: #0d6efd;
+  color: #000000;
   border: none;
-  background-color: inherit;
+  background-color: #e7e7e7;
+  border-radius: 0.5rem;
+}
+
+.modal-header {
+  border: none;
+}
+.modal-footer {
+  border: none;
 }
