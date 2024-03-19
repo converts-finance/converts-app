@@ -37,5 +37,13 @@ registerBtn.addEventListener("click", async (event) => {
   event.preventDefault();
   registerBtn.disabled = true;
 
-  await addUserDetails(firstName.value, lastName.value, user_id);
+  if (firstName.value !== "" && lastName.value !== "" && companyName.value !== "" && legalCompanyName.value !== "" && companyDescription.value !== "" && companyIndustry.value !== "") {
+    await addUserDetails(firstName.value, lastName.value, user_id);
+  } else {
+    document.getElementById("registerHelper").innerHTML = "Please fill all the required details";
+    setTimeout(() => {
+      document.getElementById("registerHelper").innerHTML = "";
+      registerBtn.disabled = false;
+    }, 2000);
+  }
 });
