@@ -19,7 +19,7 @@
             <p class="fw-bold h5 m-0">Converts</p>
           </div>
           <div class="list-group list-group-flush px-3 pb-3 pt-5">
-            <a id="" class="list-group-item list-group-item-action active" href="#">
+            <a id="" class="list-group-item list-group-item-action" href="dashboard.html">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M218.83,103.77l-80-75.48a1.14,1.14,0,0,1-.11-.11,16,16,0,0,0-21.53,0l-.11.11L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V160h32v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77ZM208,208H160V160a16,16,0,0,0-16-16H112a16,16,0,0,0-16,16v48H48V115.55l.11-.1L128,40l79.9,75.43.11.1Z"></path></svg>
               Home
             </a>
@@ -35,7 +35,7 @@
               </svg>
               Deals</a
             >
-            <a id="" class="list-group-item list-group-item-action" href="investors.html">
+            <a id="" class="list-group-item list-group-item-action active" href="investors.html">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
                 <path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"></path>
               </svg>
@@ -61,62 +61,36 @@
         </nav>
 
         <!-- Page content-->
-        <div id="dashboardContent" class="container placeholder-glow">
+        <div id="dashboardContent" class="container mb-5">
           <div class="row g-4">
             <div class="col-md-12">
-              <h1 class="display-4 fw-semibold mt-2 mb-0">Welcome back</h1>
-              <p class="text-muted small">This is your company home</p>
-            </div>
-
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex align-items-start">
-                    <img id="companyLogo" class="bg-body-secondary rounded-2" width="64" height="64" alt="" />
-                    <div class="w-100 ps-2">
-                      <div class="d-flex justify-content-between align-items-center">
-                        <h3 id="companyName" class="col"><span class="placeholder col-4 placeholder-lg"></span></h3>
-                        <a href="company.html" class="btn btn-outline-primary btn-sm">View all</a>
-                      </div>
-                      <p id="companyLegalName" class="mb-3"><span class="placeholder col-2 placeholder-lg"></span></p>
-                      <p id="companyLocation"><span class="placeholder col-3 placeholder"></span></p>
-                    </div>
-                  </div>
-                </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <h1 class="display-4 fw-semibold mb-0">Investors</h1>
+                <button id="newDealBtn" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#newInvestorModal">Add new investor</button>
               </div>
+              <p class="text-muted small">Manage your investors</p>
             </div>
+          </div>
+          <div id="displayInvestors" class="h-100">
+            <div class="d-flex justify-content-center py-4">
+              <img src="img/spinner.svg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-            <div class="col-12 col-md-6">
-              <div class="card">
-                <div class="card-body">
-                  <h5>
-                    <img class="align-bottom" src="img/deals.svg" width="24" height="24" alt="" />
-                    Deals
-                  </h5>
-                  <div id="displayDeals">
-                    <div class="d-flex justify-content-center py-4">
-                      <img src="img/spinner.svg" alt="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-              <div class="card">
-                <div class="card-body">
-                  <h5>
-                    <img class="align-bottom" src="img/company.svg" width="24" height="24" alt="" />
-                    Investors
-                  </h5>
-                  <div id="displayInvestors">
-                    <div class="d-flex justify-content-center py-4">
-                      <img src="img/spinner.svg" alt="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <!-- New Deal Modal -->
+    <div class="modal fade" id="newInvestorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">New investor</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">...</div>
+          <div class="modal-footer">
+            <button id="modalAddInvestorBtn" type="button" class="btn btn-primary">Add investor</button>
           </div>
         </div>
       </div>
@@ -127,7 +101,6 @@
     <script src="js/app.js"></script>
     <script src="js/session.js"></script>
     <script src="js/sidebar.js"></script>
-    <script src="js/dashboard.js"></script>
-    <!-- <script src="js/logout.js"></script> -->
+    <script src="js/get-investors.js"></script>
   </body>
 </html>

@@ -101,3 +101,7 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
 .modal-footer {
   border: none;
 }
+
+.placeholder {
+  border-radius: 6px;
+}
