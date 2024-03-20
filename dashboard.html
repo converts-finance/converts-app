@@ -72,13 +72,13 @@
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex align-items-start">
-                    <div class="bg-body-secondary rounded-2"></div>
+                    <img id="companyLogo" class="bg-body-secondary rounded-2" width="64" height="64" alt="" />
                     <div class="w-100 ps-2">
                       <div class="d-flex justify-content-between align-items-center">
                         <h3 id="companyName"><span class="placeholder col-4 placeholder-lg"></span></h3>
                         <a href="company.html" class="btn btn-outline-primary btn-sm">View all</a>
                       </div>
-                      <p id="companyWebsite"><span class="placeholder col-2 placeholder-lg"></span></p>
+                      <p id="companyLegalName" class="mb-3"><span class="placeholder col-2 placeholder-lg"></span></p>
                       <p id="companyLocation"><span class="placeholder col-3 placeholder-lg"></span></p>
                     </div>
                   </div>
@@ -93,7 +93,13 @@
                     <img class="align-bottom" src="img/deals.svg" width="24" height="24" alt="" />
                     Deals
                   </h5>
-                  <span class="placeholder col-12 placeholder-lg"></span>
+                  <div id="displayDeals">
+                    <span class="placeholder col-12 placeholder-lg"></span>
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                      <p class="text-secondary small text-center mb-2">You do not have any deals</p>
+                      <a href="#" class="btn btn-outline-primary">Create new deal</a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -105,7 +111,13 @@
                     <img class="align-bottom" src="img/company.svg" width="24" height="24" alt="" />
                     Investors
                   </h5>
-                  <span class="placeholder col-12 placeholder-lg"></span>
+                  <div id="displayInvestors">
+                    <span class="placeholder col-12 placeholder-lg"></span>
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                      <p class="text-secondary small text-center mb-2">You do not have any investors</p>
+                      <a href="#" class="btn btn-outline-primary">Add an investor</a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

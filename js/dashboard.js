@@ -1,5 +1,6 @@
 const companyName = document.getElementById("companyName");
-const companyWebsite = document.getElementById("companyWebsite");
+const companyLogo = document.getElementById("companyLogo");
+const companyLegalName = document.getElementById("companyLegalName");
 const companyLocation = document.getElementById("companyLocation");
 
 window.addEventListener("DOMContentLoaded", async (event) => {
@@ -7,10 +8,20 @@ window.addEventListener("DOMContentLoaded", async (event) => {
   const { data, error } = await client.from("companies").select("*").eq("user_id", user_id);
   if (data) {
     console.log(data);
+    if (data[0].logo_url == null) {
+      companyLogo.setAttribute("src", "https://ui-avatars.com/api/?name=" + data[0].company_name);
+    } else {
+      companyLogo.setAttribute("src", data[0].logo_url);
+    }
     companyName.innerHTML = data[0].company_name;
-    companyWebsite.innerHTML = data[0].company_website;
+    companyLegalName.innerHTML = data[0].legal_company_name;
+    companyLocation.innerHTML = data[0].company_hq;
   }
   if (error) {
     console.log(error);
   }
 });
+
+async function getDeals() {}
+
+async function getInvestors() {}
