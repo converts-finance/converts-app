@@ -179,6 +179,12 @@
           <div class="modal-body">
             <form>
               <div class="mb-3">
+                <div id="imagePreview" class="mb-2"></div>
+                <label for="formFile" class="form-label">Company logo</label>
+                <input class="form-control form-control-lg" type="file" id="formFile" accept="image/jpeg,image/png" onchange="previewImage()" size="1048576" />
+                <div class="form-text">The image must be less than 1MB</div>
+              </div>
+              <div class="mb-3">
                 <label class="form-label">Company name</label>
                 <input type="text" class="form-control" id="modalCompanyName" />
               </div>

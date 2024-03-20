@@ -1,3 +1,5 @@
+const bucketURL = "https://xargcmjbcxmattsksdea.supabase.co/storage/v1/object/public/logos/";
+
 const companyLogo = document.getElementById("companyLogo");
 const companyName = document.getElementById("companyName");
 const altCompanyName = document.getElementById("altCompanyName");
@@ -23,7 +25,7 @@ async function getCompanyDetails() {
     if (data[0].logo_url == null) {
       companyLogo.setAttribute("src", "https://ui-avatars.com/api/?name=" + data[0].company_name);
     } else {
-      companyLogo.setAttribute("src", data[0].logo_url);
+      companyLogo.setAttribute("src", bucketURL + data[0].logo_url);
     }
     companyName.textContent = data[0].company_name;
     altCompanyName.textContent = data[0].company_name;
@@ -39,6 +41,7 @@ async function getCompanyDetails() {
   }
 }
 
+const modalCompanyLogo = document.getElementById("formFile");
 const modalCompanyName = document.getElementById("modalCompanyName");
 const modalLegalCompanyName = document.getElementById("modalLegalCompanyName");
 const modalCompanyWebsite = document.getElementById("modalCompanyWebsite");
@@ -72,12 +75,13 @@ const saveBtn = document.getElementById("modalDetailSaveBtn");
 
 // UPDATE COMPANY DETAILS
 saveBtn.addEventListener("click", async function () {
-  updateCompanyDetails(modalCompanyName.value, modalLegalCompanyName.value, modalCompanyWebsite.value, modalCompanyHQ.value, modalCompanyDescription.value, modalInvestorMemo.value, modalTwitter.value, modalLinkedin.value, companyID.value);
+  updateCompanyDetails(modalCompanyLogo.value, modalCompanyName.value, modalLegalCompanyName.value, modalCompanyWebsite.value, modalCompanyHQ.value, modalCompanyDescription.value, modalInvestorMemo.value, modalTwitter.value, modalLinkedin.value, companyID.value);
 });
 
-async function updateCompanyDetails(companyName, legalCompanyName, website, companyhq, description, investorMemo, twitter, linkedin, id) {
+async function updateCompanyDetails(companyLogo, companyName, legalCompanyName, website, companyhq, description, investorMemo, twitter, linkedin, id) {
   saveBtn.disabled = true;
-  const { data, error } = await client.from("companies").update({ company_name: companyName, legal_company_name: legalCompanyName, company_website: website, company_hq: companyhq, company_description: description, investor_memo: investorMemo, social_twitter: twitter, social_linkedin: linkedin }).eq("id", id).select();
+  const logoName = await uploadFile();
+  const { data, error } = await client.from("companies").update({ logo_url: logoName, company_name: companyName, legal_company_name: legalCompanyName, company_website: website, company_hq: companyhq, company_description: description, investor_memo: investorMemo, social_twitter: twitter, social_linkedin: linkedin }).eq("id", id).select();
   if (data) {
     console.log(data);
     saveBtn.disabled = false;
@@ -91,4 +95,60 @@ async function updateCompanyDetails(companyName, legalCompanyName, website, comp
     console.log(error);
     saveBtn.disabled = false;
   }
+}
+
+// COMPANY LOGO PREVIEW AND VALIDATION
+function previewImage() {
+  var preview = document.getElementById("imagePreview");
+  var fileInput = document.getElementById("formFile");
+  var file = fileInput.files[0];
+  var reader = new FileReader();
+
+  // Check if file type is allowed and size is within limit
+  if (file) {
+    if (file.type === "image/jpeg" || file.type === "image/png") {
+      if (file.size <= 1048576) {
+        // 1MB in bytes
+        reader.onloadend = function () {
+          preview.innerHTML = '<img class="img-fluid rounded" src="' + reader.result + '" width="150" height="150" />';
+        };
+        reader.readAsDataURL(file);
+      } else {
+        preview.innerHTML = "Image size exceeds 1MB limit";
+        fileInput.value = ""; // Clear the file input to allow selecting a new file
+      }
+    } else {
+      preview.innerHTML = "Only JPG and PNG files are allowed";
+      fileInput.value = ""; // Clear the file input to allow selecting a new file
+    }
+  } else {
+    preview.innerHTML = "No image selected";
+  }
+}
+
+// UPLOAD LOGO FILE TO BUCKET
+async function uploadFile() {
+  let timestamp = Date.now();
+  let salt = Math.floor(Math.random() * 1000000);
+  let extension = getFileExtension(modalCompanyLogo.value);
+  let randomFilename = timestamp + "_" + salt + "." + extension;
+
+  const { data, error } = await client.storage.from("logos").upload(randomFilename, modalCompanyLogo.files[0]);
+  if (error) {
+    console.log(error);
+  } else {
+    console.log(data);
+    return randomFilename;
+  }
+}
+
+// Extract file extension
+function getFileExtension(filename) {
+  // Split the filename into parts based on the period (.)
+  var parts = filename.split(".");
+
+  // Get the last part of the array, which should be the file extension
+  var extension = parts[parts.length - 1];
+
+  return extension;
 }
