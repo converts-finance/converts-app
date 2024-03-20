@@ -27,7 +27,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M240,208H224V96a16,16,0,0,0-16-16H144V32a16,16,0,0,0-24.88-13.32L39.12,72A16,16,0,0,0,32,85.34V208H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM208,96V208H144V96ZM48,85.34,128,32V208H48ZM112,112v16a8,8,0,0,1-16,0V112a8,8,0,1,1,16,0Zm-32,0v16a8,8,0,0,1-16,0V112a8,8,0,1,1,16,0Zm0,56v16a8,8,0,0,1-16,0V168a8,8,0,0,1,16,0Zm32,0v16a8,8,0,0,1-16,0V168a8,8,0,0,1,16,0Z"></path></svg>
               Company
             </a>
-            <a id="" class="list-group-item list-group-item-action active" href="deals.html">
+            <a id="" class="list-group-item list-group-item-action" href="deals.html">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
                 <path
                   d="M96,104a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H104A8,8,0,0,1,96,104Zm8,40h64a8,8,0,0,0,0-16H104a8,8,0,0,0,0,16Zm128,48a32,32,0,0,1-32,32H88a32,32,0,0,1-32-32V64a16,16,0,0,0-32,0c0,5.74,4.83,9.62,4.88,9.66h0A8,8,0,0,1,24,88a7.89,7.89,0,0,1-4.79-1.61h0C18.05,85.54,8,77.61,8,64A32,32,0,0,1,40,32H176a32,32,0,0,1,32,32V168h8a8,8,0,0,1,4.8,1.6C222,170.46,232,178.39,232,192ZM96.26,173.48A8.07,8.07,0,0,1,104,168h88V64a16,16,0,0,0-16-16H67.69A31.71,31.71,0,0,1,72,64V192a16,16,0,0,0,32,0c0-5.74-4.83-9.62-4.88-9.66A7.82,7.82,0,0,1,96.26,173.48ZM216,192a12.58,12.58,0,0,0-3.23-8h-94a26.92,26.92,0,0,1,1.21,8,31.82,31.82,0,0,1-4.29,16H200A16,16,0,0,0,216,192Z"
@@ -43,7 +43,7 @@
             >
           </div>
           <div class="list-group list-group-flush px-3 pb-3">
-            <a id="" class="list-group-item list-group-item-action" href="profile.html">
+            <a id="" class="list-group-item list-group-item-action active" href="profile.html">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24ZM74.08,197.5a64,64,0,0,1,107.84,0,87.83,87.83,0,0,1-107.84,0ZM96,120a32,32,0,1,1,32,32A32,32,0,0,1,96,120Zm97.76,66.41a79.66,79.66,0,0,0-36.06-28.75,48,48,0,1,0-59.4,0,79.66,79.66,0,0,0-36.06,28.75,88,88,0,1,1,131.52,0Z"></path></svg> Profile</a
             >
           </div>
@@ -65,17 +65,42 @@
           <div class="row g-4">
             <div class="col-md-12">
               <div class="d-flex justify-content-between align-items-center">
-                <h1 class="display-4 fw-semibold mb-0">Deals</h1>
-                <button id="newDealBtn" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#newDealModal">Create new deal</button>
+                <h1 class="display-4 fw-semibold mb-0">Profile</h1>
+                <button id="newDealBtn" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit</button>
               </div>
-              <p class="text-muted small">Manage your investors deals</p>
+              <p class="text-muted small">Manage your personal profile</p>
+            </div>
+
+            <div class="col-md-3">
+              <p class="fw-bold">First name</p>
+            </div>
+            <div class="col-md-9">
+              <p id="userFirstName"><span class="placeholder col-4"></span></p>
+            </div>
+
+            <div class="col-md-3">
+              <p class="fw-bold">Last name</p>
+            </div>
+            <div class="col-md-9">
+              <p id="userLastName"><span class="placeholder col-4"></span></p>
+            </div>
+
+            <div class="col-md-3">
+              <p class="fw-bold">Email</p>
+            </div>
+            <div class="col-md-9">
+              <p id="userEmail"><span class="placeholder col-4"></span></p>
+            </div>
+
+            <div class="col-md-3">
+              <button id="logoutBtn" class="btn btn-outline-danger" onclick="">Logout</button>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- New Deal Modal -->
+    <!-- Edit Profile Modal -->
     <div class="modal fade" id="newDealModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -96,6 +121,6 @@
     <script src="js/app.js"></script>
     <script src="js/session.js"></script>
     <script src="js/sidebar.js"></script>
-    <script src="js/get-deals.js"></script>
+    <script src="js/get-profile.js"></script>
   </body>
 </html>
