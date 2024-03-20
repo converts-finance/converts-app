@@ -1,3 +1,5 @@
+const bucketURL = "https://xargcmjbcxmattsksdea.supabase.co/storage/v1/object/public/logos/";
+
 const companyName = document.getElementById("companyName");
 const companyLogo = document.getElementById("companyLogo");
 const companyLegalName = document.getElementById("companyLegalName");
@@ -11,7 +13,7 @@ window.addEventListener("DOMContentLoaded", async (event) => {
     if (data[0].logo_url == null) {
       companyLogo.setAttribute("src", "https://ui-avatars.com/api/?name=" + data[0].company_name);
     } else {
-      companyLogo.setAttribute("src", data[0].logo_url);
+      companyLogo.setAttribute("src", bucketURL + data[0].logo_url);
     }
     companyName.innerHTML = data[0].company_name;
     companyLegalName.innerHTML = data[0].legal_company_name;
