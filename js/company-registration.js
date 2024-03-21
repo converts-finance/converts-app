@@ -1,3 +1,12 @@
+window.addEventListener("DOMContentLoaded", async (event) => {
+  await checkSession();
+  const { data, error } = await client.from("companies").select("*").eq("user_id", user_id);
+  if (data.length > 0) {
+    console.log(data);
+    window.location.replace("/dashboard.html");
+  }
+});
+
 const firstName = document.getElementById("userFirstName");
 const lastName = document.getElementById("userLastName");
 const companyName = document.getElementById("companyName");
