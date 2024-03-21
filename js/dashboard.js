@@ -36,7 +36,7 @@ async function getDeals() {
     console.log(data);
     if (data.length <= 0) {
       document.getElementById("displayDeals").innerHTML = `
-        <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="d-flex flex-column justify-content-center align-items-center pt-4 pb-2">
           <p class="text-secondary small text-center mb-2">You do not have any deals</p>
           <a href="#" class="btn btn-sm btn-outline-primary">Create new deal</a>
         </div>
@@ -54,7 +54,7 @@ async function getInvestors() {
     console.log(data);
     if (data.length <= 0) {
       document.getElementById("displayInvestors").innerHTML = `
-        <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="d-flex flex-column justify-content-center align-items-center pt-4 pb-2">
           <p class="text-secondary small text-center mb-2">You do not have any investors</p>
           <a href="#" class="btn btn-sm btn-outline-primary">Add an investor</a>
         </div>
