@@ -3,6 +3,8 @@ window.addEventListener("DOMContentLoaded", async (event) => {
   await getDeals();
 });
 
+const newDealBtn = document.getElementById("newDealBtn");
+
 async function getDeals() {
   const { data, error } = await client.from("deals").select("*").eq("user_id", user_id);
   if (data) {
@@ -21,3 +23,43 @@ async function getDeals() {
     console.log(error);
   }
 }
+
+const companyName = document.getElementById("companyName");
+const legalCompanyName = document.getElementById("legalCompanyName");
+const companyWebsite = document.getElementById("companyWebsite");
+const companyTaxResidency = document.getElementById("companyTaxResidency");
+const companyHQ = document.getElementById("companyHQ");
+const companyDescription = document.getElementById("companyDescription");
+const companyInvestorMemo = document.getElementById("companyInvestorMemo");
+const twitterAccount = document.getElementById("twitterAccount");
+
+newDealBtn.addEventListener("click", async function () {
+  const { data, error } = await client.from("companies").select("*").eq("user_id", user_id);
+  if (data) {
+    console.log(data);
+    companyName.textContent = data[0].company_name;
+    legalCompanyName.textContent = data[0].legal_company_name;
+    companyWebsite.textContent = data[0].company_website;
+    companyTaxResidency.textContent = data[0].tax_residency;
+    companyHQ.textContent = data[0].company_hq;
+    companyDescription.textContent = data[0].company_description;
+    companyInvestorMemo.textContent = data[0].investor_memo;
+  }
+  if (error) {
+    console.log(error);
+  }
+});
+
+// SAVE DRAFT
+const modalDealName = document.getElementById("");
+const modalDealAmount = document.getElementById("");
+const modalInstrument = document.getElementById("");
+const modalValCap = document.getElementById("");
+const modalDiscount = document.getElementById("");
+const modalMFN = document.getElementById("modalMFN");
+const modalInvestorName = document.getElementById("modalInvestorName");
+const modalInvestorEmail = document.getElementById("modalInvestorEmail");
+
+const saveDraftBtn = document.getElementById("modalDealDraftBtn");
+
+saveDraftBtn.addEventListener("click", async function () {});

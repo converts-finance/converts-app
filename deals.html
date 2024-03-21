@@ -82,15 +82,177 @@
 
     <!-- New Deal Modal -->
     <div class="modal fade" id="newDealModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5">Edit company details</h1>
+            <h1 class="modal-title fs-5">New deal</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">...</div>
+          <div class="modal-body">
+            <div class="row">
+              <!-- LEFT SIDE -->
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <h5>General information</h5>
+                  <p class="text-secondary small mb-2">All information related to your company</p>
+                  <div class="alert alert-info small" role="alert">The information displayed in this panel can be modified in your Company tab. Whenever you make a change there, it will be updated here as well.</div>
+                </div>
+                <div class="row gy-3">
+                  <div class="col-md-4">
+                    <p class="fw-bold">Company name</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p id="companyName"><span class="placeholder col-4"></span></p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <p class="fw-bold">Legal name</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p id="legalCompanyName"><span class="placeholder col-3"></span></p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <p class="fw-bold">Website</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p id="companyWebsite"><span class="placeholder col-4"></span></p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <p class="fw-bold">Tax residency</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p id="companyTaxResidency"><span class="placeholder col-2"></span></p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <p class="fw-bold">Company HQ</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p id="companyHQ"><span class="placeholder col-2"></span></p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <p class="fw-bold">Description</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p id="companyDescription">
+                      <span class="placeholder col-7"></span>
+                      <span class="placeholder col-4"></span>
+                      <span class="placeholder col-4"></span>
+                      <span class="placeholder col-6"></span>
+                      <span class="placeholder col-8"></span>
+                    </p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <p class="fw-bold">Investor memo</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p id="companyInvestorMemo">
+                      <span class="placeholder col-7"></span>
+                      <span class="placeholder col-4"></span>
+                      <span class="placeholder col-4"></span>
+                      <span class="placeholder col-6"></span>
+                    </p>
+                  </div>
+
+                  <div class="mb-3">
+                    <h5>Social media</h5>
+                    <p class="text-secondary small">Your company social media</p>
+                  </div>
+                  <div class="col-md-4">
+                    <p class="fw-bold">Twitter</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p id="twitterAccount"><span class="placeholder col-4"></span></p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <p class="fw-bold">LinkedIn</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p id="linkedinAccount"><span class="placeholder col-4"></span></p>
+                  </div>
+                </div>
+              </div>
+              <!-- RIGHT SIDE -->
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <h5>Deal terms</h5>
+                  <p class="text-secondary small">Specify the terms of your deal</p>
+                </div>
+                <form>
+                  <div class="mb-3">
+                    <label class="form-label">Deal name</label>
+                    <input type="text" class="form-control" id="modalDealName" placeholder="Pre seed, Series A, etc..." />
+                    <div class="form-text">Investors won't see the name of the deal.</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">How much are you raising?</label>
+                    <div class="input-group">
+                      <span class="input-group-text">$</span>
+                      <input type="text" class="form-control" id="modalDealAmount" placeholder="amount" />
+                    </div>
+                    <div class="form-text">Add the amount in dollars that you are trying to raise.</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Investment instrument</label>
+                    <select id="modalInstrument" class="form-select" aria-label="Default select example">
+                      <option selected disabled>Select</option>
+                      <option value="1">SAFE pre-money</option>
+                      <option value="2">SAFE post-money</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Valuation cap</label>
+                    <div class="input-group">
+                      <span class="input-group-text">$</span>
+                      <input type="text" class="form-control" id="modalValCap" placeholder="amount" />
+                    </div>
+                    <div class="form-text">The valuation cap.</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Discount</label>
+                    <div class="input-group">
+                      <span class="input-group-text">%</span>
+                      <input type="text" class="form-control" id="modalDiscount" placeholder="" />
+                    </div>
+                    <div class="form-text">The discount.</div>
+                  </div>
+
+                  <div class="form-check form-switch mb-3">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Add MFN clause?</label>
+                    <input class="form-check-input" type="checkbox" role="switch" id="modalMFN" />
+                    <div class="form-text">What is this?.</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <h5>Investor details</h5>
+                    <p class="text-secondary small">Invite an investor to see their deal</p>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Investor name</label>
+                    <input type="text" class="form-control" id="modalInvestorName" placeholder="Investor name" />
+                    <div class="form-text">If a company, specify the legal entity name.</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Investor email</label>
+                    <input type="text" class="form-control" id="modalInvestorEmail" placeholder="hi@investor.com" />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
           <div class="modal-footer">
-            <button id="modalDetailSaveBtn" type="button" class="btn btn-primary">Save changes</button>
+            <button id="modalDealDraftBtn" type="button" class="btn btn-outline-primary">Save draft</button>
+            <button id="modalDealSaveBtn" type="button" class="btn btn-primary">Continue</button>
           </div>
         </div>
       </div>
