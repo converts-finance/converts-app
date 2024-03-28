@@ -65,20 +65,25 @@
           <div class="row g-4">
             <div class="col-md-12">
               <div class="d-flex justify-content-between align-items-center">
-                <h1 class="display-4 fw-semibold mb-0">Company</h1>
+                <h1 class="display-5 fw-semibold mb-0">Company</h1>
                 <button id="editDetailsBtn" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#companyDetailsModal">Edit</button>
               </div>
               <p class="text-muted small">Manage your company details</p>
             </div>
 
-            <div class="col-md-12 mb-3 d-flex align-items-center">
-              <img id="companyLogo" class="bg-body-secondary rounded-2 me-2" width="48" height="48" alt="" />
+            <div class="col-md-12 mb-3 d-flex flex-column">
+              <img id="companyLogo" class="bg-body-secondary rounded-2 mb-2" width="64" height="64" alt="" />
               <h2 id="companyName" class="col-4">
                 <span class="placeholder w-75"></span>
               </h2>
             </div>
             <div class="mb-3">
-              <h5>General information</h5>
+              <div class="d-flex align-items-center">
+                <h5 class="m-0">General information</h5>
+                <button class="btn btn-link">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M227.32,73.37,182.63,28.69a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H216a8,8,0,0,0,0-16H115.32l112-112A16,16,0,0,0,227.32,73.37ZM136,75.31,152.69,92,68,176.69,51.31,160ZM48,208V179.31L76.69,208Zm48-3.31L79.32,188,164,103.31,180.69,120Zm96-96L147.32,64l24-24L216,84.69Z"></path></svg>
+                </button>
+              </div>
               <p class="text-secondary small">All information related to your company</p>
             </div>
             <div class="col-md-3">
@@ -154,14 +159,14 @@
               <p class="fw-bold">Twitter</p>
             </div>
             <div class="col-md-9">
-              <p id="twitterAccount">link</p>
+              <p id="twitterAccount"><span class="placeholder col-4"></span></p>
             </div>
 
             <div class="col-md-3">
               <p class="fw-bold">LinkedIn</p>
             </div>
             <div class="col-md-9">
-              <p id="linkedinAccount">link</p>
+              <p id="linkedinAccount"><span class="placeholder col-4"></span></p>
             </div>
           </div>
         </div>

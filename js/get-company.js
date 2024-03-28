@@ -10,6 +10,7 @@ const companyHQ = document.getElementById("companyHQ");
 const companyDescription = document.getElementById("companyDescription");
 const companyInvestorMemo = document.getElementById("companyInvestorMemo");
 const twitterAccount = document.getElementById("twitterAccount");
+const linkedinAccount = document.getElementById("linkedinAccount");
 
 const editDetailsBtn = document.getElementById("editDetailsBtn");
 
@@ -35,6 +36,8 @@ async function getCompanyDetails() {
     companyHQ.textContent = data[0].company_hq;
     companyDescription.textContent = data[0].company_description;
     companyInvestorMemo.textContent = data[0].investor_memo;
+    twitterAccount.textContent = data[0].social_twitter;
+    linkedinAccount.textContent = data[0].social_linkedin;
   }
   if (error) {
     console.log(error);

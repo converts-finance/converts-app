@@ -41,6 +41,8 @@ async function getDeals() {
           <a href="#" class="btn btn-sm btn-outline-primary">Create new deal</a>
         </div>
       `;
+    } else {
+      console.log("you got a deal");
     }
   }
   if (error) {
