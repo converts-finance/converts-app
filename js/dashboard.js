@@ -38,11 +38,43 @@ async function getDeals() {
       document.getElementById("displayDeals").innerHTML = `
         <div class="d-flex flex-column justify-content-center align-items-center pt-4 pb-2">
           <p class="text-secondary small text-center mb-2">You do not have any deals</p>
-          <a href="#" class="btn btn-sm btn-outline-primary">Create new deal</a>
+          <a href="deals.html" class="btn btn-sm btn-outline-primary">Go to deals</a>
         </div>
       `;
     } else {
       console.log("you got a deal");
+      let deals = "";
+      data.forEach((item) => {
+        deals += `
+        <div class="card bg-light shadow-sm">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start">
+              <p class="fw-bold mb-3">${item.deal_name}</p>
+              <span class="badge text-bg-secondary text-capitalize">${item.deal_status}</span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <div>
+                <p class="text-secondary small text-uppercase">Raising goal</p>
+                <p class="small">$${item.deal_value}</p>
+              </div>
+              <div>
+                <p class="text-secondary small text-uppercase">type</p>
+                <p class="small">${item.deal_type}</p>
+              </div>
+              <div>
+                <p class="text-secondary small text-uppercase">valuation cap</p>
+                <p class="small">$${item.deal_valcap}</p>
+              </div>
+              <div>
+                <p class="text-secondary small text-uppercase">investor</p>
+                <p class="small">${item.investor_name}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        `;
+      });
+      document.getElementById("displayDeals").innerHTML = deals;
     }
   }
   if (error) {
@@ -58,7 +90,7 @@ async function getInvestors() {
       document.getElementById("displayInvestors").innerHTML = `
         <div class="d-flex flex-column justify-content-center align-items-center pt-4 pb-2">
           <p class="text-secondary small text-center mb-2">You do not have any investors</p>
-          <a href="#" class="btn btn-sm btn-outline-primary">Add an investor</a>
+          <a href="investors.html" class="btn btn-sm btn-outline-primary">Go to investors</a>
         </div>
       `;
     }
